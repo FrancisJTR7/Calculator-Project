@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  background-color: gray;
+  height: 600px;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+}
+
+.screen {
+  background-color: rgb(44, 44, 44);
+  height: 100px;
+  width: 560px;
+  margin: 20px;
+}
+
+.bb {
+  height: 50px;
+  width: 50%;
+}
+
+.b {
+  height: 50px;
+  width: 20%;
+}
+
+.b1,
+.b2,
+.b3,
+.b4,
+.b5 {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin: 20px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+}
