@@ -28,11 +28,7 @@
   width: 20%;
 }
 
-.b1,
-.b2,
-.b3,
-.b4,
-.b5 {
+.b1 {
   display: flex;
   justify-content: center;
   gap: 25px;
