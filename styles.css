@@ -23,7 +23,8 @@
   width: 50%;
 }
 
-.b {
+.b,
+.n {
   height: 50px;
   width: 20%;
 }
