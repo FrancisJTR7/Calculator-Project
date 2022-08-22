@@ -9,21 +9,39 @@ const sev = document.getElementById('7');
 const eig = document.getElementById('8');
 const nin = document.getElementById('9');
 const zer = document.getElementById('0');
-const per = document.getElementById('.');
-const div = document.getElementById('/');
-const mul = document.getElementById('*');
-const sub = document.getElementById('-');
-const add = document.getElementById('+');
+const per = document.getElementById('per');
+const div = document.getElementById('div');
+const mul = document.getElementById('mult');
+const sub = document.getElementById('sub');
+const add = document.getElementById('add');
 const clr = document.getElementById('clr');
 const del = document.getElementById('del');
 const equ = document.getElementById('equ');
 
-const data = [];
-let act = 0;
+const data = [0];
+let d = data.length - 1;
 let sum = 0;
+let act = 0;
+
+add.onclick = () => {
+  data.push(0);
+  console.log(data);
+  act = act + 1;
+  console.log(act);
+  let d = data.length - act;
+  console.log(d);
+  console.log(data.length);
+};
+
+equ.onclick = () => {
+  var fil = data.filter(Number);
+  console.log(fil);
+};
 
 one.onclick = () => {
-  data[0] = data[0] + '1';
+  let d = data.length - 1;
+  console.log(d);
+  data[d] = data[d] + '1';
 };
 
 two.onclick = () => {
@@ -62,5 +80,8 @@ zer.onclick = () => {
   data[0] = data[0] + '0';
 };
 
-console.log(data);
+per.onclick = () => {
+  data[0] = data[0] + '.';
+};
+
 //if ((div, mul, sub, add, clr, del == false))
