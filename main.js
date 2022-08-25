@@ -11,77 +11,138 @@ const nin = document.getElementById('9');
 const zer = document.getElementById('0');
 const per = document.getElementById('per');
 const div = document.getElementById('div');
-const mul = document.getElementById('mult');
+const mul = document.getElementById('mul');
 const sub = document.getElementById('sub');
 const add = document.getElementById('add');
 const clr = document.getElementById('clr');
 const del = document.getElementById('del');
 const equ = document.getElementById('equ');
 
-const data = [0];
+let data = [0];
 let d = data.length - 1;
 let sum = 0;
 let act = 0;
+let tact = 0;
+
+function log() {
+  var filt = data.filter(Number); // removes 0 values from data to filt
+  let datan = filt.map((str) => {
+    //turns strings into numbers from filt to datan
+    return Number(str);
+  });
+  if (datan.length == 2 && tact === 1) {
+    sum = datan[0] / datan[1];
+    data = [0];
+    datan = [0];
+    filt = [0];
+  } else if (datan.length == 2 && tact === 2) {
+    sum = datan[0] * datan[1];
+    data = [0];
+    datan = [0];
+    filt = [0];
+  } else if (datan.length == 2 && tact === 3) {
+    sum = datan[0] - datan[1];
+    data = [0];
+    datan = [0];
+    filt = [0];
+  } else if (datan.length == 2 && tact === 4) {
+    sum = datan[0] + datan[1];
+    data = [0];
+    datan = [0];
+    filt = [0];
+  }
+  console.log(act);
+  console.log(data);
+  console.log(filt);
+  console.log(datan);
+  console.log(sum);
+}
+
+div.onclick = () => {
+  data.push(0);
+  act = act + 1;
+  let d = data.length - act;
+  tact = 1;
+};
+
+mul.onclick = () => {
+  data.push(0);
+  act = act + 1;
+  let d = data.length - act;
+  tact = 2;
+};
+
+sub.onclick = () => {
+  data.push(0);
+  act = act + 1;
+  let d = data.length - act;
+  tact = 3;
+};
 
 add.onclick = () => {
   data.push(0);
-  console.log(data);
   act = act + 1;
-  console.log(act);
   let d = data.length - act;
-  console.log(d);
-  console.log(data.length);
+  tact = 4;
 };
 
 equ.onclick = () => {
-  var fil = data.filter(Number);
-  console.log(fil);
+  log();
 };
 
 one.onclick = () => {
   let d = data.length - 1;
-  console.log(d);
   data[d] = data[d] + '1';
 };
 
 two.onclick = () => {
-  data[0] = data[0] + '2';
+  let d = data.length - 1;
+  data[d] = data[d] + '2';
 };
 
 thr.onclick = () => {
-  data[0] = data[0] + '3';
+  let d = data.length - 1;
+  data[d] = data[d] + '3';
 };
 
 fou.onclick = () => {
-  data[0] = data[0] + '4';
+  let d = data.length - 1;
+  data[d] = data[d] + '4';
 };
 
 fiv.onclick = () => {
-  data[0] = data[0] + '5';
+  let d = data.length - 1;
+  data[d] = data[d] + '5';
 };
 
 six.onclick = () => {
-  data[0] = data[0] + '6';
+  let d = data.length - 1;
+  data[d] = data[d] + '6';
 };
 
 sev.onclick = () => {
-  data[0] = data[0] + '7';
+  let d = data.length - 1;
+  data[d] = data[d] + '7';
 };
 
 eig.onclick = () => {
-  data[0] = data[0] + '8';
+  let d = data.length - 1;
+  data[d] = data[d] + '8';
 };
 
 nin.onclick = () => {
-  data[0] = data[0] + '9';
+  let d = data.length - 1;
+  data[d] = data[d] + '9';
 };
 
 zer.onclick = () => {
-  data[0] = data[0] + '0';
+  let d = data.length - 1;
+  data[d] = data[d] + '0';
 };
 
 per.onclick = () => {
-  data[0] = data[0] + '.';
+  let d = data.length - 1;
+  data[d] = data[d] + '.';
 };
 
 //if ((div, mul, sub, add, clr, del == false))
