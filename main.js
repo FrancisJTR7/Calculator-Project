@@ -23,72 +23,10 @@ let d = data.length - 1;
 let sum = 0;
 let act = 0;
 let tact = 0;
-
-function log() {
-  var filt = data.filter(Number); // removes 0 values from data to filt
-  let datan = filt.map((str) => {
-    //turns strings into numbers from filt to datan
-    return Number(str);
-  });
-  if (datan.length == 2 && tact === 1) {
-    sum = datan[0] / datan[1];
-    data = [0];
-    datan = [0];
-    filt = [0];
-  } else if (datan.length == 2 && tact === 2) {
-    sum = datan[0] * datan[1];
-    data = [0];
-    datan = [0];
-    filt = [0];
-  } else if (datan.length == 2 && tact === 3) {
-    sum = datan[0] - datan[1];
-    data = [0];
-    datan = [0];
-    filt = [0];
-  } else if (datan.length == 2 && tact === 4) {
-    sum = datan[0] + datan[1];
-    data = [0];
-    datan = [0];
-    filt = [0];
-  }
-  console.log(act);
-  console.log(data);
-  console.log(filt);
-  console.log(datan);
-  console.log(sum);
-}
-
-div.onclick = () => {
-  data.push(0);
-  act = act + 1;
-  let d = data.length - act;
-  tact = 1;
-};
-
-mul.onclick = () => {
-  data.push(0);
-  act = act + 1;
-  let d = data.length - act;
-  tact = 2;
-};
-
-sub.onclick = () => {
-  data.push(0);
-  act = act + 1;
-  let d = data.length - act;
-  tact = 3;
-};
-
-add.onclick = () => {
-  data.push(0);
-  act = act + 1;
-  let d = data.length - act;
-  tact = 4;
-};
-
-equ.onclick = () => {
-  log();
-};
+var filt = data.filter(Number);
+let datan = filt.map((str) => {
+  return Number(str);
+});
 
 one.onclick = () => {
   let d = data.length - 1;
@@ -143,6 +81,80 @@ zer.onclick = () => {
 per.onclick = () => {
   let d = data.length - 1;
   data[d] = data[d] + '.';
+};
+
+function clean() {
+  if (data.length > 2) {
+    var filt = data.filter(Number);
+    let datan = filt.map((str) => {
+      return Number(str);
+    });
+    if (datan.length == 2 && tact === 1) {
+      sum = datan[0] / datan[1];
+      data = [0];
+      datan = [0];
+      filt = [0];
+    } else if (datan.length == 2 && tact === 2) {
+      sum = datan[0] * datan[1];
+      data = [0];
+      datan = [0];
+      filt = [0];
+    } else if (datan.length == 2 && tact === 3) {
+      sum = datan[0] - datan[1];
+      data = [0];
+      datan = [0];
+      filt = [0];
+    } else if (datan.length == 2 && tact === 4) {
+      sum = datan[0] + datan[1];
+      data = [0];
+      datan = [0];
+      filt = [0];
+    }
+  }
+}
+
+function log() {
+  console.log(act);
+  console.log(data);
+  console.log(filt);
+  console.log(datan);
+  console.log(sum);
+}
+
+div.onclick = () => {
+  data.push(0);
+  act = act + 1;
+  let d = data.length - act;
+  tact = 1;
+  clean();
+};
+
+mul.onclick = () => {
+  data.push(0);
+  act = act + 1;
+  let d = data.length - act;
+  tact = 2;
+  clean();
+};
+
+sub.onclick = () => {
+  data.push(0);
+  act = act + 1;
+  let d = data.length - act;
+  tact = 3;
+  clean();
+};
+
+add.onclick = () => {
+  data.push(0);
+  act = act + 1;
+  let d = data.length - act;
+  tact = 4;
+  clean;
+};
+
+equ.onclick = () => {
+  log();
 };
 
 //if ((div, mul, sub, add, clr, del == false))
